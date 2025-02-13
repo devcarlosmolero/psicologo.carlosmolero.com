@@ -62,7 +62,7 @@ const renderXML = (entries: { slug: string; updatedAt: string }[]) => {
     )}
     ${SITE_STATIC_PATHS.map(
         (path) => `<url>
-      <loc>${SITE_BASE_URL}/${path}</loc>
+      <loc>${SITE_BASE_URL}${path === '' ? '' : '/'}${path}</loc>
       <lastmod>${new Date().toISOString()}</lastmod>
     </url>`
     )}
