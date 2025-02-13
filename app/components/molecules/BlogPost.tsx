@@ -1,7 +1,7 @@
 import { Link } from '@remix-run/react'
+import { Fragment } from 'react/jsx-runtime'
 import { IBlogPost } from '~/types/contentful'
 import { FakeBackgroundImagePrimitive } from '../atoms/FakeBackgroundImagePrimitive'
-import { Fragment } from 'react/jsx-runtime'
 
 export default function BlogPost({
     post,
@@ -12,7 +12,7 @@ export default function BlogPost({
 }) {
     return (
         <Fragment>
-            <div className="grid gap-5 rounded-lg p-3 pl-0 md:grid-cols-2">
+            <div className="grid gap-5 rounded-lg md:grid-cols-2">
                 <FakeBackgroundImagePrimitive.Container className="aspect-h-9 aspect-w-16 rounded-md">
                     <Link to={`${post.slug}`}>
                         <FakeBackgroundImagePrimitive.Image
