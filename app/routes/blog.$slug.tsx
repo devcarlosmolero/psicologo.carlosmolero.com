@@ -13,14 +13,14 @@ import SelectableCategoriesGroup from '~/components/organisms/SelectableCategori
 import Container from '~/components/templates/Container'
 import SidebarLayout from '~/components/templates/SidebarLayout'
 import { IBlogPost } from '~/types/contentful'
-import { getBasicMetas } from '~/utils/metas'
+import MetaUtils from '~/utils/metas'
 
 // @ts-expect-error idk
 export const meta: MetaFunction = (payload: { data: { post: IBlogPost } }) => {
     const { post } = payload.data
 
     return [
-        ...getBasicMetas({
+        ...MetaUtils.getBasic({
             title: post.seoTitle,
             description: post.seoDescription,
             image: `https:${post.headerImgUrl}`,
@@ -91,7 +91,7 @@ export default function BlogPostPage() {
                         )}
                     <hr className="!border-[#E4E4E4]" />
 
-                    <article className="prose-dark prose w-full !max-w-none prose-h2:tracking-tighter prose-h3:tracking-tighter prose-h4:tracking-tighter prose-img:w-full prose-img:rounded-lg [&_h2:first-of-type]:mt-0">
+                    <article className="prose-dark prose w-full max-w-[500px] prose-h2:tracking-tighter prose-h3:tracking-tighter prose-h4:tracking-tighter prose-img:w-full prose-img:rounded-lg [&_h2:first-of-type]:mt-0">
                         <Markdown
                             remarkPlugins={[remarkGfm]}
                             rehypePlugins={[rehypeSlug, rehypeRaw]}

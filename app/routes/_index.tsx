@@ -10,7 +10,7 @@ import Container from '~/components/templates/Container'
 import SidebarLayout from '~/components/templates/SidebarLayout'
 import { SITE_DESCRIPTION, SITE_TITLE } from '~/consts'
 import { IBlogPost, IResource } from '~/types/contentful'
-import { getBasicMetas, getPersonJsonLd } from '~/utils/metas'
+import MetaUtils from '~/utils/metas'
 
 export async function loader({ context }: LoaderFunctionArgs) {
     const posts = await Posts.latest(4, getContentfulAuthEnvVariables(context))
@@ -33,12 +33,12 @@ export async function loader({ context }: LoaderFunctionArgs) {
 
 export const meta: MetaFunction = () => {
     return [
-        ...getBasicMetas({
+        ...MetaUtils.getBasic({
             title: `${SITE_TITLE}`,
             description: SITE_DESCRIPTION,
         }),
         {
-            'script:ld+json': [getPersonJsonLd()],
+            'script:ld+json': [MetaUtils.getPersonJsonLd()],
         },
     ]
 }

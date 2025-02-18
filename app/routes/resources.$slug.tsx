@@ -13,7 +13,7 @@ import SelectableCategoriesGroup from '~/components/organisms/SelectableCategori
 import Container from '~/components/templates/Container'
 import SidebarLayout from '~/components/templates/SidebarLayout'
 import { IResource } from '~/types/contentful'
-import { getBasicMetas } from '~/utils/metas'
+import MetaUtils from '~/utils/metas'
 
 export async function loader({ request, context }: LoaderFunctionArgs) {
     const slug = new URL(request.url).pathname.split('/').pop()
@@ -43,7 +43,7 @@ export const meta: MetaFunction = (payload: {
     const { resource } = payload.data
 
     return [
-        ...getBasicMetas({
+        ...MetaUtils.getBasic({
             title: resource.seoTitle,
             description: resource.seoDescription,
         }),

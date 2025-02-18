@@ -10,7 +10,7 @@ import Container from '~/components/templates/Container'
 import SidebarLayout from '~/components/templates/SidebarLayout'
 import { SITE_BLOG_DESCRIPTION, SITE_BLOG_TITLE } from '~/consts'
 import { IBlogPost } from '~/types/contentful'
-import { getBasicMetas } from '~/utils/metas'
+import MetaUtils from '~/utils/metas'
 
 export async function loader({ request, context }: LoaderFunctionArgs) {
     const searchParams = new URL(request.url).searchParams
@@ -58,7 +58,7 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
 
 export const meta: MetaFunction = () => {
     return [
-        ...getBasicMetas({
+        ...MetaUtils.getBasic({
             title: `${SITE_BLOG_TITLE}`,
             description: SITE_BLOG_DESCRIPTION,
         }),

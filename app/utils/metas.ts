@@ -7,7 +7,7 @@ import {
     SITE_X_URL,
 } from '~/consts'
 
-export function getBasicMetas({
+function getBasic({
     title,
     description,
     image,
@@ -63,7 +63,7 @@ export function getBasicMetas({
     ]
 }
 
-export function getPersonJsonLd() {
+function getPersonJsonLd() {
     return {
         '@context': 'https://schema.org',
         '@type': 'http://schema.org/Person',
@@ -81,3 +81,10 @@ export function getPersonJsonLd() {
         ],
     }
 }
+
+const MetaUtils = {
+    getBasic,
+    getPersonJsonLd,
+}
+
+export default MetaUtils

@@ -11,7 +11,6 @@ const navLinks = [
         icon: (
             <Home className="size-5 duration-500 group-hover:translate-x-3" />
         ),
-        target: '_self',
     },
     {
         title: 'Blog',
@@ -19,7 +18,6 @@ const navLinks = [
         icon: (
             <BookOpen className="size-5 duration-500 group-hover:translate-x-3" />
         ),
-        target: '_self',
     },
     {
         title: 'Recursos',
@@ -27,13 +25,12 @@ const navLinks = [
         icon: (
             <Folder className="size-5 duration-500 group-hover:translate-x-3" />
         ),
-        target: '_self',
     },
 ]
 
 function Root({ children }: { children: ReactNode }) {
     return (
-        <div className="flex min-h-[100vh] items-center justify-center bg-primary-light">
+        <div className="flex min-h-[100vh] items-center justify-center bg-gray-100">
             <div className="min-h-[100vh] w-[1366px] rounded-lg bg-white xl:h-[768px] xl:min-h-[768px] xl:shadow-lg">
                 <div className="flex h-full w-full">{children}</div>
             </div>

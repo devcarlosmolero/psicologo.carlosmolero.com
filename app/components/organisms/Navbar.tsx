@@ -1,7 +1,5 @@
 import { Link } from '@remix-run/react'
-import { Calendar, ChevronRight } from 'lucide-react'
 import { Fragment, useState } from 'react'
-import Button from '../atoms/Button'
 import Hamburger from '../molecules/Hamburguer'
 import SocialIcons from '../molecules/SocialIcons'
 import SidebarLayout from '../templates/SidebarLayout'

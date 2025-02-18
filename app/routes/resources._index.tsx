@@ -8,7 +8,7 @@ import Container from '~/components/templates/Container'
 import SidebarLayout from '~/components/templates/SidebarLayout'
 import { SITE_RESOURCES_DESCRIPTION, SITE_RESOURCES_TITLE } from '~/consts'
 import { IResource } from '~/types/contentful'
-import { getBasicMetas } from '~/utils/metas'
+import MetaUtils from '~/utils/metas'
 
 export async function loader({ context, request }: LoaderFunctionArgs) {
     const searchParams = new URL(request.url).searchParams
@@ -44,7 +44,7 @@ export async function loader({ context, request }: LoaderFunctionArgs) {
 
 export const meta: MetaFunction = () => {
     return [
-        ...getBasicMetas({
+        ...MetaUtils.getBasic({
             title: `${SITE_RESOURCES_TITLE}`,
             description: SITE_RESOURCES_DESCRIPTION,
         }),
