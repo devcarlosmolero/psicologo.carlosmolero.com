@@ -15,13 +15,15 @@ import Navbar from './components/organisms/Navbar'
 import { SITE_BASE_URL } from './consts'
 
 export async function loader({ request }: LoaderFunctionArgs) {
-    const pathname = new URL(request.url).pathname
-    const hostname = new URL(request.url).hostname
-    const hasWWW = new URL(request.url).hostname.includes('www')
+    const url = new URL(request.url)
+    const pathname = url.pathname
+    const hostname = url.hostname
+    const hasWWW = hostname.includes('www')
     const isLocal = hostname.includes('dev.carlosmolero.com')
+    const searchString = url.search;
 
     if (!hasWWW && !isLocal) {
-        return redirect(`${SITE_BASE_URL}${pathname}`, { status: 301 })
+        return redirect(`${SITE_BASE_URL}${pathname}${searchString}`, { status: 301 })
     }
 
     return json({ url: request.url })
